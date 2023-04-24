@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './provider/AuthProvider';
 
 const Login = () => {
+
+    const {userSignIn} = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -10,6 +13,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        userSignIn(email, password)
+        .then(result => {
+            const loggededUser = result.user;
+            console.log(loggededUser)
+            form.reset()
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
     return (
         <form onSubmit={handleLogin} className="hero min-h-screen bg-base-200">
