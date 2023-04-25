@@ -21,6 +21,7 @@ const Header = () => {
           <Link className="mx-2" to='/'>Home</Link>
           <Link className="mx-2" to='/register'>Register</Link>
           <Link className="mx-2" to='/login'>Login</Link>
+          <Link className="mx-2" to='/order'>Orders</Link>
         </div>
         <div className="ms-auto bg-red-500 p-3 rounded">
          {
